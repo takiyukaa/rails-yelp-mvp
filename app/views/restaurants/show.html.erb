@@ -6,14 +6,16 @@
     <p><%= @restaurant.phone_number %></p>
   </div>
 
-  <div class="card p-3 my-3">
+
     <% @restaurant.reviews.each do |review| %>
-    <div class="stars">
-      <i class="fas fa-star"><%= review.rating %></i>
+    <div class="card p-3 my-3 flex-row">
+      <div class="stars mr-3 ">
+        <i class="fas fa-star"><%= review.rating %></i>
+      </div>
+      <p><%= review.content %></p>
     </div>
-    <p><%= review.content %></p>
     <% end %>
-  </div>
+
 
   <%= link_to new_restaurant_review_path(@restaurant) do %>
     <button type="button" class="btn btn-warning">Add Review</button>
