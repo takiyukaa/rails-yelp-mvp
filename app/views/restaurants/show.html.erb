@@ -1,0 +1,24 @@
+<div class="container">
+  <h1><%= @restaurant.name %></h1>
+  <div class="card p-3 my-3">
+    <p><%= @restaurant.category %></p>
+    <p><%= @restaurant.address %></p>
+    <p><%= @restaurant.phone_number %></p>
+  </div>
+
+  <div class="card p-3 my-3">
+    <% @restaurant.reviews.each do |review| %>
+    <div class="stars">
+      <i class="fas fa-star"><%= review.rating %></i>
+    </div>
+    <p><%= review.content %></p>
+    <% end %>
+  </div>
+
+  <%= link_to new_restaurant_review_path(@restaurant) do %>
+    <button type="button" class="btn btn-warning">Add Review</button>
+  <% end %>
+  <%= link_to restaurants_path do %>
+    <button type="button" class="btn btn-success m-3">back to list</button>
+  <% end %>
+</div>
